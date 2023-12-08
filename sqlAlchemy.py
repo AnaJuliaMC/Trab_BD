@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 
 
 # engine = create_engine('postgresql://postgres:postgres@localhost:5432/trabalho-bd')
-engine = create_engine('postgresql://postgres:postgres@localhost:5432/trabalho-bd')
+engine = create_engine('postgres/luanabrizola@TrabalhoBD4Bimestre')
 # conn = engine.connect()
 # print(engine)
 
@@ -77,6 +77,7 @@ class Passagem(Base):
     qtde_pessoas = Column(Integer, nullable=False)
     idclassevoo = Column(Integer, ForeignKey('classevoo.idclassevoo'), nullable=False)
     classevoo = relationship('ClasseVoo', back_populates='passagens')
+    usuarios_passagem = relationship('UsuarioHasPassagem', back_populates='passagem')
 
 class Hotel(Base):
     __tablename__ = 'hotel'
@@ -94,10 +95,11 @@ class Hospedagem(Base):
     __tablename__ = 'hospedagem'
     idhospedagem = Column(Integer, primary_key=True)
     idhotel = Column(Integer, ForeignKey('hotel.idhotel'), nullable=False)
-    # hotel = relationship('Hotel', back_populates='hospedagens')
+    hotel = relationship('Hotel', back_populates='hospedagens')
     precos = Column(Float, nullable=False)
     entrada = Column(Date, nullable=False)
     saida = Column(Date, nullable=False)
+    usuarios_hospedagem = relationship('UsuarioHasHospedagem', back_populates='hospedagem')
 
 class UsuarioHasHospedagem(Base):
     __tablename__ = 'usuario_has_hospedagem'
