@@ -1,0 +1,116 @@
+DROP TABLE IF EXISTS hospedagem;
+DROP TABLE IF EXISTS destinos;
+DROP TABLE IF EXISTS usuario;
+DROP TABLE IF EXISTS  passagem;
+DROP TABLE IF EXISTS estado;
+DROP TABLE IF EXISTS cidade;
+DROP TABLE IF EXISTS endereco;
+DROP TABLE IF EXISTS origem;
+DROP TABLE IF EXISTS classevoo;
+DROP TABLE IF EXISTS hotel;
+DROP TABLE IF EXISTS usuario_has_hospedagem;
+DROP TABLE IF EXISTS usuario_has_passagem;
+
+
+CREATE TABLE usuario(
+cpf VARCHAR(11) not null,
+nome VARCHAR(50) not null,
+email VARCHAR(50)not null,
+senha VARCHAR(15) not null,
+PRIMARY KEY(cpf));
+
+CREATE TABLE estado(
+idestado INT NOT NULL,
+nome_estado VARCHAR(100) NOT NULL,
+PRIMARY KEY(idestado)
+);
+
+CREATE TABLE cidade(
+idcidade INT NOT NULL,
+nome_cidade VARCHAR(100) NOT NULL,
+idestado INT NOT NULL,
+PRIMARY KEY(idcidade),
+FOREIGN KEY(idestado) REFERENCES estado(idestado)
+);
+
+CREATE TABLE endereco(
+idendereco INT NOT NULL,
+rua VARCHAR(50) NOT NULL,
+numero VARCHAR(6) NOT NULL,
+idcidade INT NOT NULL,
+PRIMARY KEY(idendereco),
+FOREIGN KEY(idcidade) REFERENCES cidade(idcidade)
+);
+
+CREATE TABLE destinos(
+iddestino int not NULL,
+descriçao VARCHAR(500) not null,
+fotos VARCHAR(20)not NULL,
+idcidade INT NOT NULL,
+PRIMARY KEY (iddestino),
+FOREIGN KEY(idcidade) REFERENCES cidade(idcidade));
+
+CREATE TABLE origem(
+idorigem INT NOT NULL,
+idendereco INT NOT NULL,
+PRIMARY KEY(idorigem),
+FOREIGN KEY(idendereco) REFERENCES endereco(idendereco)
+);
+
+CREATE TABLE classevoo(
+idclassevoo INT NOT NULL,
+nomeclassevoo VARCHAR(30) NOT NULL,
+preco_classe FLOAT,
+PRIMARY KEY (idclassevoo)
+);
+
+CREATE TABLE passagem(
+idpassagem INT not null, 
+data_ida TIMESTAMP not null,
+data_volta TIMESTAMP, 
+idorigem INT not null,
+iddestino INT not null,
+duração TIME not null,
+companhia_aerea VARCHAR(10) NOT NULL,
+qtde_pessoas INT NOT NULL,
+idclassevoo INT not NULL,
+PRIMARY key(idpassagem),
+FOREIGN KEY(iddestino) REFERENCES destinos(iddestino),
+FOREIGN KEY(idorigem) REFERENCES origem(idorigem),
+FOREIGN KEY(idclassevoo) REFERENCES classevoo (idclassevoo)
+);
+
+CREATE TABLE hotel(
+idhotel INT NOT NULL,
+nome_hotel VARCHAR(50),
+qtdehospedes INT NOT NULL,
+qtdequartos INT NOT NULL,
+idendereco INT NOT NULL,
+PRIMARY KEY(idhotel),
+FOREIGN KEY(idendereco) REFERENCES endereco(idendereco)
+);
+
+CREATE TABLE hospedagem(
+idhospedagem INT NOT NULL,
+idhotel INT NOT NULL,
+precos FLOAT not null,
+entrada DATE not null,
+saida DATE not null,
+PRIMARY KEY(idhospedagem),
+FOREIGN KEY(idhotel) REFERENCES hotel(idhotel));
+
+CREATE TABLE usuario_has_hospedagem(
+cpf VARCHAR(11) NOT NULL,
+idhospedagem INT NOT NULL,
+comentario VARCHAR(500) NOT NULL,
+FOREIGN KEY (cpf) REFERENCES usuario(cpf),
+FOREIGN KEY (idhospedagem) REFERENCES hospedagem(idhospedagem)
+);
+
+CREATE TABLE usuario_has_passagem(
+cpf VARCHAR(11) NOT NULL,
+idpassagem INT NOT NULL,
+comentario VARCHAR(500) NOT NULL,
+FOREIGN KEY (cpf) REFERENCES usuario(cpf),
+FOREIGN KEY (idpassagem) REFERENCES passagem(idpassagem)
+)

@@ -4,9 +4,10 @@ from sqlalchemy import create_engine
 
 
 # engine = create_engine('postgresql://postgres:postgres@localhost:5432/trabalho-bd')
-engine = create_engine('postgres/luanabrizola@TrabalhoBD4Bimestre')
-# conn = engine.connect()
-# print(engine)
+engine=create_engine('postgresql://luanabrizola:qvkLUKZJ9Gd4@ep-bold-flower-93463717.us-east-2.aws.neon.tech/TrabalhoBD4Bimestre')
+#engine = create_engine('postgres/luanabrizola@TrabalhoBD4Bimestre')
+conn = engine.connect()
+print(engine)
 
 
 Session = sessionmaker(bind=engine)
