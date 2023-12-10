@@ -213,18 +213,18 @@ usuario_has_hospedagem = [
 ]
 
 
-# session.add_all(usuarios)
-# session.add_all(estados)
-# session.add_all(cidades)
-# session.add_all(enderecos)
-# session.add_all(origens)
-# session.add_all(destinos)
-# session.add_all(classes_voo)
-# session.add_all(passagens)
-# session.add_all(hoteis)
-# session.add_all(usuario_has_passagem)
-# session.add_all(hospedagem)
-# session.add_all(usuario_has_hospedagem)
+session.add_all(usuarios)
+session.add_all(estados)
+session.add_all(cidades)
+session.add_all(enderecos)
+session.add_all(origens)
+session.add_all(destinos)
+session.add_all(classes_voo)
+session.add_all(passagens)
+session.add_all(hoteis)
+session.add_all(usuario_has_passagem)
+session.add_all(hospedagem)
+session.add_all(usuario_has_hospedagem)
 
 session.commit()
 
