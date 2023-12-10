@@ -261,13 +261,13 @@ for destino in rdestinos:
 
 # lendo classes_voo
 rclasses_voo = session.query(ClasseVoo).all()
-for classe in rclasses_voos:
+for classe in rclasses_voo:
     print(classe.idclassevoo, classe.nomeclassevoo, classe.preco_classe)
 
 # lendo passagens
 rpassagens = session.query(Passagem).all()
 for passagem in rpassagens:
-    print(passagem.idpassagem, passagem.data_ida, passagem.data_volta, passagem.passagem.idorigem, passagem.iddestino, passagem.duracao, passagem.companhia_aerea, passagem.qtde_pessoas, passagem.idclassevoo)
+    print(passagem.idpassagem, passagem.data_ida, passagem.data_volta, passagem.idorigem, passagem.iddestino, passagem.duracao, passagem.companhia_aerea, passagem.qtde_pessoas, passagem.idclassevoo)
 
 # lendo hoteis
 rhoteis = session.query(Hotel).all()
@@ -303,6 +303,7 @@ session.commit()
 # EXCLUIR DADOS DAS TABELAS
 
 session.query(Usuario).filter(Usuario.cpf == "19027198913").delete()
+session.query(UsuarioHasHospedagem).filter(UsuarioHasHospedagem.idhospedagem == 1).delete()
 session.query(Hospedagem).filter(Hospedagem.idhospedagem == 1).delete()
 session.query(Endereco).filter(Endereco.idendereco == 30).delete()
 
