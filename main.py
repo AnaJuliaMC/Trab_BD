@@ -295,5 +295,15 @@ session.commit()
 
 session.query(Usuario).filter(Usuario.cpf == "23454366654").update( { "nome" : "Luciana Passos"})
 session.query(Endereco).filter(Endereco.idendereco == 14).update( { "rua" : "Rua Ipe"})
+session.query(Hospedagem).filter(Hospedagem.idhospedagem == 3).update( { "precos" : "1000"})
+session.query(Hotel).filter(Hotel.idhotel == 1).update( { "qtdequartos" : "1"})
 
 session.commit()
+
+# EXCLUIR DADOS DAS TABELAS
+
+session.query(Usuario).filter(Usuario.cpf == "19027198913").delete()
+session.query(Hospedagem).filter(Hospedagem.idhospedagem == 1).delete()
+session.query(Endereco).filter(Endereco.idendereco == 30).delete()
+
+session.close() 
