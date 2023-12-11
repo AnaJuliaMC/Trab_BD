@@ -78,7 +78,6 @@ class Hospedagem(db.Model):
     precos = db.Column(db.Float, nullable=False)
     entrada = db.Column(db.Date, nullable=False)
     saida = db.Column(db.Date, nullable=False)
-    # usuarios_hospedagem = db.relationship('UsuarioHasHospedagem', back_populates='hospedagem')
 
 class UsuarioHasPassagem(db.Model):
     __tablename__ = 'usuario_has_passagem'
@@ -99,7 +98,7 @@ class UsuarioHasHospedagem(db.Model):
 # Rota principal
 @app.route('/')
 def index():
-    return 'Bem-vindo ao aplicativo de viagens!'
+    return render_template('index.html')
 
 # Rota para listar todos os usuários
 @app.route('/usuarios')
