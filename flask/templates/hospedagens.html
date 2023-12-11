@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Hospedagens</title>
+</head>
+<body>
+    <h1>Listagem de Hospedagens</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id da hospedagem</th>
+                <th>Id do hotel</th>
+                <th>Precos</th>
+                <th>Entrada</th>
+                <th>Saída</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for hospedagem in hospedagens %}
+                <tr>
+                    <td>{{ hospedagem.idhospedagem }}</td>
+                    <td>{{ hospedagem.idhotel }}</td>
+                    <td>{{ hospedagem.precos }}</td>
+                    <td>{{ hospedagem.entrada }}</td>
+                    <td>{{ hospedagem.saida }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

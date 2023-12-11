@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Classes do Voo</title>
+</head>
+<body>
+    <h1>Listagem de Classes do Voo</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id da classe do voo</th>
+                <th>Nome da classe do voo</th>
+                <th>Preço da classe do voo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for classe in classes %}
+                <tr>
+                    <td>{{ classe.idclassevoo }}</td>
+                    <td>{{ classe.nomeclassevoo }}</td>
+                    <td>{{ classe.preco_classe }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
