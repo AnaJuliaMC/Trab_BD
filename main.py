@@ -3,7 +3,8 @@ from sqlalchemy.orm import sessionmaker
 from sqlAlchemy import Usuario, Estado, Cidade, Endereco, Destinos, Origem, ClasseVoo, Passagem, Hotel, Hospedagem, UsuarioHasHospedagem, UsuarioHasPassagem
 from datetime import date
 
-engine = create_engine('postgresql://postgres:postgres@localhost:5432/trabalho-bd')
+engine = create_engine('postgresql://luanabrizola:qvkLUKZJ9Gd4@localhost:5432/TrabalhoBD4Bimestre')
+#engine = create_engine('postgresql://postgres:postgres@localhost:5432/trabalho-bd')
 Session = sessionmaker(bind=engine)
 session = Session()
 
@@ -307,4 +308,5 @@ session.query(UsuarioHasHospedagem).filter(UsuarioHasHospedagem.idhospedagem == 
 session.query(Hospedagem).filter(Hospedagem.idhospedagem == 1).delete()
 session.query(Endereco).filter(Endereco.idendereco == 30).delete()
 
+session.commit()
 session.close() 
