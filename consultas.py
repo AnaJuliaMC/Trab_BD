@@ -1,7 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlAlchemy import Usuario, Estado, Cidade, Endereco, Destinos, Origem, ClasseVoo, Passagem, Hotel, Hospedagem, UsuarioHasHospedagem, UsuarioHasPassagem
-from datetime import date
 from sqlalchemy import or_, and_
 
 engine = create_engine('postgresql://postgres:postgres@localhost:5432/trabalho-bd')
