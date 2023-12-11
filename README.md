@@ -21,11 +21,7 @@ Você precisará criar um servidor no PgAdmin, assim que criado substitua
 
 engine =  create_engine('postgresql://postgres:postgres@localhost:5432/X')
 
-O segundo postgres pelo seu nome de usuário
-O terceiro pela sua senha
-localhost pelo seu endereço
-5432 pela sua senha
-e X pelo nome do seu banco de dados
+No segundo postgres coloque seu nome de usuário, no terceiro sua senha, no localhost seu endereço, 5432 pela sua senha, e X pelo nome do seu banco de dados.
 
 
 
