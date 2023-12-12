@@ -42,7 +42,7 @@ for hotel, media_precos in resultado:
     print(f"Nome do Hotel: {hotel}, Média de Preços de Hospedagens: {media_precos}")
 
 #Mostre o id da hospedagem que tem como data de entrada e saida '2020-12-11' e '2020-12-15', respectivamente
-data_inicio = datetime(202, 1, 11)
+data_inicio = datetime(2020, 1, 11)
 data_fim = datetime(2020, 12, 15)
 
 resultado = session.query(Hospedagem).filter(Hospedagem.entrada.between(data_inicio, data_fim)).all()
@@ -52,10 +52,10 @@ for hospedagem in resultado:
 
 # MENEGASSO CONSULTAS
 
-#Mostre quais hoteis reservaram mais de 2 quartos 
+#Mostre quais hoteis reservaram mais de 5 quartos 
 
 
-resultado = session.query(Hotel.nome_hotel).filter(Hotel.qtdequartos >= 5).all()
+resultado = session.query(hotel).filter(Hotel.qtdequartos >= 5).all()
 for hotel in resultado:
     print(f'Nome do hotel {Hotel.nome_hotel}')
 
