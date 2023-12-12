@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Passagens</title>
+</head>
+<body>
+    <h1>Listagem de Passagens</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>CPF</th>
+                <th>Id da passagem</th>
+                <th>comentario</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usupassagem in usupassagens %}
+                <tr>
+                    <td>{{ usupassagem.cpf }}</td>
+                    <td>{{ usupassagem.idpassagem }}</td>
+                    <td>{{ usupassagem.comentario }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

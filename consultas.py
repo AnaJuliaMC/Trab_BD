@@ -15,8 +15,8 @@ session = Session()
 # DEFENDI CONSULTAS
 
 # consultando hospedagens ordenando das mais baratas p as mais caras
-hospedagensordenadas = session.query(Hospedagem).order_by(Hospedagem.precos.asc()).all()
-for hospedagem in hospedagensordenadas:
+resultado = session.query(Hospedagem).order_by(Hospedagem.precos.asc()).all()
+for hospedagem in resultado:
     print(f"ID: {hospedagem.idhospedagem}, Preço: {hospedagem.precos}")
 
 # consultando usuarios que foram para o hotel do estado id 5 ou 1

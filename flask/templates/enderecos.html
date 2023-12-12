@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Endereços</title>
+</head>
+<body>
+    <h1>Listagem de Endereços</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id do endereço</th>
+                <th>Rua</th>
+                <th>Número</th>
+                <th>Id da cidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for endereco in enderecos %}
+                <tr>
+                    <td>{{ endereco.idendereco }}</td>
+                    <td>{{ endereco.rua }}</td>
+                    <td>{{ endereco.numero }}</td>
+                    <td>{{ endereco.idcidade }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

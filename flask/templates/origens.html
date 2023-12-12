@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Origens</title>
+</head>
+<body>
+    <h1>Listagem de Origens</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id da origem</th>
+                <th>Id do endereco</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for origem in origens %}
+                <tr>
+                    <td>{{ origem.idorigem }}</td>
+                    <td>{{ origem.idendereco }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Estados</title>
+</head>
+<body>
+    <h1>Listagem de Estados</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id do estado</th>
+                <th>Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for estado in estados %}
+                <tr>
+                    <td>{{ estado.idestado }}</td>
+                    <td>{{ estado.nome_estado }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

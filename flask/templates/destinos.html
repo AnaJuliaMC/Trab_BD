@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Destinos</title>
+</head>
+<body>
+    <h1>Listagem de Destinos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id do destino</th>
+                <th>Descrição</th>
+                <th>Fotos</th>
+                <th>Id da cidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for destino in destinos %}
+                <tr>
+                    <td>{{ destino.iddestino }}</td>
+                    <td>{{ destino.descricao }}</td>
+                    <td>{{ destino.fotos }}</td>
+                    <td>{{ destino.idcidade }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

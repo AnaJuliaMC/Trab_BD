@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Cidades</title>
+</head>
+<body>
+    <h1>Listagem de Cidades</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id da cidade</th>
+                <th>Nome</th>
+                <th>Id do estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cidade in cidades %}
+                <tr>
+                    <td>{{ cidade.idcidade }}</td>
+                    <td>{{ cidade.nome_cidade }}</td>
+                    <td>{{ cidade.idestado }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

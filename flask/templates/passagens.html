@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Passagens</title>
+</head>
+<body>
+    <h1>Listagem de Passagens</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id da passagem</th>
+                <th>Data de ida</th>
+                <th>Data de volta</th>
+                <th>Id de origem</th>
+                <th>Id de destino</th>
+                <th>Duração</th>
+                <th>Companhia aera</th>
+                <th>Quantidade de pessoas</th>
+                <th>Id da classe do voo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for passagem in passagens %}
+                <tr>
+                    <td>{{ passagem.idpassagem }}</td>
+                    <td>{{ passagem.data_ida }}</td>
+                    <td>{{ passagem.data_volta }}</td>
+                    <td>{{ passagem.idorigem }}</td>
+                    <td>{{ passagem.iddestino }}</td>
+                    <td>{{ passagem.duracao }}</td>
+                    <td>{{ passagem.companhia_aerea }}</td>
+                    <td>{{ passagem.qtde_pessoas }}</td>
+                    <td>{{ passagem.idpssagem }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
