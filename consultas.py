@@ -49,3 +49,25 @@ resultado = session.query(Hospedagem).filter(Hospedagem.entrada.between(data_ini
 
 for hospedagem in resultado:
     print(f"ID da Hospedagem: {hospedagem.idhospedagem}, Entrada: {hospedagem.entrada}, Saída: {hospedagem.saida}")
+
+# MENEGASSO CONSULTAS
+
+#Mostre quais hoteis reservaram mais de 2 quartos 
+
+
+resultado = session.query(Hotel.nome_hotel).filter(Hotel.qtdequartos >= 5).all()
+for hotel in resultado:
+    print(f'Nome do hotel {Hotel.nome_hotel}')
+
+
+# Mostre o nome dos hoteis que tem hotel no nome
+
+resultado = session.query(Hotel).filter(Hotel.nome_hotel.like("%Hotel%")).all()
+for hotel in resultado:
+    print(f'Nome do hotel:{Hotel.nome_hotel}')
+
+# Mostre os usuarios cujos nomes contem ana e os comentarios deixados por eles sobre a hospedagem
+
+resultado = session.query(Usuario, UsuarioHasHospedagem).join(Usuario, Usuario.cpf == UsuarioHasHospedagem.cpf).filter(Usuario.nome.like("%ana%"))
+for usuario in resultado:
+    print(f'Nome do usuario {Usuario.nome} comentario {UsuarioHasHospedagem.comentario}')
