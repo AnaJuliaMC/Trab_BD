@@ -3,8 +3,8 @@ from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from sqlalchemy import create_engine
 
 
-#engine = create_engine('postgresql://postgres:postgres@localhost:5432/trabalho-bd')
-engine = create_engine('postgresql://luanabrizola:qvkLUKZJ9Gd4@localhost:5432/TrabalhoBD4Bimestre')
+engine = create_engine('postgresql://postgres:postgres@localhost:5432/trab')
+# engine = create_engine('postgresql://luanabrizola:qvkLUKZJ9Gd4@localhost:5432/TrabalhoBD4Bimestre')
 conn = engine.connect()
 print(engine)
 
@@ -125,11 +125,8 @@ Endereco.origens = relationship('Origem', back_populates='endereco')
 Destinos.passagens_destino = relationship('Passagem', back_populates='destino')
 Origem.passagens_origem = relationship('Passagem', back_populates='origem')
 ClasseVoo.passagens = relationship('Passagem', back_populates='classevoo')
-Hospedagem.usuarios_hospedagem = relationship('UsuarioHasHospedagem', back_populates='hospedagem')
-Hospedagem.hotel = relationship('Hotel', back_populates='hospedagens')
 Usuario.hospedagens_usuario = relationship('UsuarioHasHospedagem', back_populates='usuario')
 Usuario.passagens_usuario = relationship('UsuarioHasPassagem', back_populates='usuario')
-Passagem.usuarios_passagem = relationship('UsuarioHasPassagem', back_populates='passagem')
 Hotel.hospedagens = relationship('Hospedagem', back_populates='hotel')
 
 try:
